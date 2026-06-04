@@ -1,0 +1,14 @@
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct ChangeMode_ {
+                boolean flag[29];
+                int32 mode[29];
+            };
+        };
+    };
+};
+
+
+

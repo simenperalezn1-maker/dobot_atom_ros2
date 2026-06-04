@@ -1,0 +1,18 @@
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct PowerCmd_
+            {
+                uint16 control_power_supply;              /*控制上下电*/
+                uint16 clear_errors;                     /*清错*/
+                uint16 set_led_colour;                    /*设置前置面板灯颜色*/
+                uint16 set_led_mode;                      /*设置前置面板灯闪烁情况*/
+                uint16 set_sd_brightness;                 /*设置头部示廓灯亮度*/
+                uint16 set_sd_mode;                       /*设置头部示廓灯模式*/
+            };
+        };
+    };
+};
+
+

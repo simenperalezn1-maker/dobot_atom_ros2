@@ -1,0 +1,12 @@
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct EnableMotors_ {
+                boolean flag[29];
+            };
+        };
+    };
+};
+
+

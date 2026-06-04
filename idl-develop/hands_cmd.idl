@@ -1,0 +1,16 @@
+#include "motor_cmd.idl"
+
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct HandsCmd_
+            { 
+                MotorCmd_ hands[12];
+            };
+        };
+    };
+};
+
+
+

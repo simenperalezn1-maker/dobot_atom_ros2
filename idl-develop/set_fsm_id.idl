@@ -1,0 +1,15 @@
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct SetFsmId_ {
+                uint16 id;         // 对算法状态机
+                string current_action; // 算法当前正在执行的动作，空表示没有动作
+            };
+        };
+    };
+};
+
+
+
+

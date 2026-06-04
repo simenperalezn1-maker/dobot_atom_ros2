@@ -1,0 +1,15 @@
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct ModifyJointOffset_ {
+                int32 motor_index;
+                float offset;
+            };
+        };
+    };
+};
+
+
+
+

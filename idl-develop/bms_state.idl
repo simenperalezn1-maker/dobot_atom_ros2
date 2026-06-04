@@ -1,0 +1,27 @@
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct BmsState_
+            {
+                uint16  bms_state;                     /*BMS状态*/
+                uint16  afe_state;                     /*AFE芯片状态*/
+                uint32  bms_alarms;                    /*BMS故障码*/
+                uint16  battery_level;                 /*电池电量百分比*/
+                uint16  battery_health;                /*电池健康度*/
+                uint16  pcb_board_temp;                 /*PCB板温度*/
+                uint16  afe_chip_temp;                  /*AFE芯片温度*/
+                uint16  battery_now_current;            /*电池包当前电流*/
+                uint16  cells_voltage[16];             /*16个电芯电压*/
+                uint16  battery_pack_current_voltage;    /*电池包电压*/
+                uint16  battery_pack_io_voltage;         /*电池包放电/充电接口的电压*/
+                uint32  bms_work_time;                  /*BMS运行时间*/
+                uint16  bms_hardware_version;           /*BMS硬件版本号*/
+                uint16  bms_software_version;           /*BMS软件版本号*/
+                uint16  heartbeat;                    /*心跳*/
+            };
+        };
+    };
+};
+
+

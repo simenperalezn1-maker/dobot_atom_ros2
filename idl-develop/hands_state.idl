@@ -1,0 +1,15 @@
+#include "motor_state.idl"
+
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct HandsState_
+            {
+                MotorState_ hands[12];
+            };
+        };
+    };
+};
+
+

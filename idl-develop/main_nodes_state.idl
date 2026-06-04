@@ -1,0 +1,47 @@
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct AxisStateInfo_
+            {
+                uint8  servo_state;
+                uint16 error_code;  //电机报警错误码
+                uint16 warn_code;  // 电机警告错误码
+                int32  pos_err_code;
+                int32  vel_err_code;
+                int32  torque_err_code;
+                uint8  node_state;
+                uint8  display_op_mode;
+                boolean is_virtual;   /* default: false */
+                uint8  mcu_temp;
+                uint8  mos_temp;
+                uint8  motor_temp;
+                uint8  bus_voltage;
+                uint16 software_version;
+            };
+
+            @extensibility(FINAL)
+            struct EcatSlaveInfo_
+            {
+                boolean is_virtual;
+                uint8   slave_state;
+                uint16  error_code;
+                uint16  software_version;
+            };
+
+            @extensibility(FINAL)
+            struct MainNodesState_ {
+                AxisStateInfo_ left_leg[6];
+                AxisStateInfo_ right_leg[6];
+                AxisStateInfo_ waist;
+                AxisStateInfo_ left_arm[7];
+                AxisStateInfo_ right_arm[7];
+                AxisStateInfo_ head[2];
+                EcatSlaveInfo_ ecat2can[2];
+                /* AxisStateInfo left_hand[6]; */
+                /* AxisStateInfo right_hand[6]; */
+                /* uint16 power_state[8]; */
+            };
+        };
+    };
+};

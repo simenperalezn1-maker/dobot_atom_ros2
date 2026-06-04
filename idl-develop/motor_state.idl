@@ -1,0 +1,23 @@
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct MotorState_ {
+                uint8 mode;                  // 模式
+                float q;                     // 角位置
+                float dq;                    // 角速度
+                float ddq;                   // 角加速度
+                float tau_est;               // 估计的力矩
+                float q_raw;                 // 原始角位置
+                float dq_raw;                // 原始角速度
+                float ddq_raw;               // 原始角加速度
+                uint8 mcu_temp;               // 伺服控制板温度
+                uint8 mos_temp;               // mos管温度
+                uint8 motor_temp;             // 电机温度
+                uint8 bus_voltage;            // 母线电压数据
+            };
+        };
+    };
+};
+
+

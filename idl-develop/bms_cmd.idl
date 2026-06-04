@@ -1,0 +1,13 @@
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct BmsCmd_
+            {
+                uint16 clear_errors;     /*清错*/
+            };
+        };
+    };
+};
+
+

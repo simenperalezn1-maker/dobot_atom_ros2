@@ -1,0 +1,8 @@
+uint8 START_SYNC=0
+uint8 STOP_SYNC=1
+uint8 START_TELEOP=2
+uint8 STOP_TELEOP=3
+uint8 START_RECORD=4
+uint8 STOP_RECORD=5
+
+uint8 command_type

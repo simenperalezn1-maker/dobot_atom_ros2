@@ -1,0 +1,12 @@
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct PlayTTS_
+            {
+                char tts_path[256];              /*语音文件路径*/
+            };
+        };
+    };
+};
+

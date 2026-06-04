@@ -1,0 +1,12 @@
+uint16 power_supply_state
+uint16 strong_power_current
+uint16 weak_power_current
+uint16 weak_power_voltage
+uint16 replenishment_port_voltage
+uint16 hardware_version
+uint16 software_version
+uint16 error_codes
+uint16 heartbeat
+uint16 strong_power_voltage
+uint16 brk_2v5_voltage
+uint16 brk_state

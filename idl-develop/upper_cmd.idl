@@ -1,0 +1,14 @@
+#include "motor_cmd.idl"
+
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct UpperCmd_ {
+                MotorCmd_ motor_cmd[17];           // 电机命令，包含 17 个 MotorCmd_ 结构体
+            };
+        };
+    };
+};
+
+

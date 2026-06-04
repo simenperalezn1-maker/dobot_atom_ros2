@@ -1,0 +1,24 @@
+
+#include "imu_state.idl"
+#include "motor_state.idl"
+#include "bms_state.idl"
+
+module dobot_atom{
+    module msg{
+        module dds_{
+            @extensibility(FINAL)
+            struct UpperState_ {
+                char robot_type[16];           /*对应产品定义的类型*/
+                boolean is_upper_control;      /* true: 上肢有控制，false: 上肢无控制*/
+                uint16 fsm_id;                 /*对应算法状态机*/
+                MotorState_ motor_state[17];
+                BmsState_ bms_state;
+                octet wireless_remote[40];
+                uint32 reserve;               /*越疆保留*/
+            };
+        };
+    };
+};
+
+
+

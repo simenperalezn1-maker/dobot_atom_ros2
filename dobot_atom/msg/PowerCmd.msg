@@ -1,0 +1,6 @@
+uint16 control_power_supply
+uint16 clear_errors
+uint16 set_led_colour
+uint16 set_led_mode
+uint16 set_sd_brightness
+uint16 set_sd_mode
