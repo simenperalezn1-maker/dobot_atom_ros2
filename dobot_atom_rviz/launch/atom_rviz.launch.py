@@ -35,7 +35,7 @@ def generate_launch_description():
     # 获取atom_urdf包的路径
     atom_urdf_path = get_package_share_path('atom_urdf')
     # 设置默认的URDF模型文件路径
-    default_model_path = atom_urdf_path / 'urdf/atom.urdf'
+    default_model_path = atom_urdf_path / 'atom_p2/urdf/atom.urdf'
     
     # 获取当前包的路径用于RViz配置文件
     dobot_atom_rviz_path = get_package_share_path('dobot_atom_rviz')

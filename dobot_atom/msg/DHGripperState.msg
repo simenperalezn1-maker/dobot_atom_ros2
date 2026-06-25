@@ -1,0 +1,2 @@
+DHGripperSingleState right
+DHGripperSingleState left

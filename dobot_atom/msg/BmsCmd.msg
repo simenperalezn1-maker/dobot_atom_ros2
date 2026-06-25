@@ -1,1 +1,2 @@
 uint16 clear_errors
+uint16 spare_battery_charge_request

@@ -1,0 +1,2 @@
+DHGripperSingleCmd right
+DHGripperSingleCmd left

@@ -1,0 +1,5 @@
+uint8 START_REASONING=0
+uint8 STOP_REASONING=1
+uint8 BACK_TOSTRT=2
+
+uint8 command_type
