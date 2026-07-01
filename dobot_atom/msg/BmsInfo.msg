@@ -1,3 +1,4 @@
 uint16 latch_state
 uint16 spare_battery_level
 uint16 spare_battery_exchange_complete
+BmsLog log

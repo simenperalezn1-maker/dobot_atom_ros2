@@ -1,2 +1,3 @@
 uint16 clear_errors
 uint16 spare_battery_charge_request
+uint16 get_bms_log_index

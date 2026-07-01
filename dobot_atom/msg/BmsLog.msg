@@ -1,0 +1,16 @@
+uint16 log_index
+uint16 log_capacity
+uint32 log_bms_runtime
+uint32 log_bms_alarm
+uint16 log_bms_status
+uint16 log_afe_status
+uint16 log_bms_soc
+uint16 log_bms_vtop
+uint16 log_bms_vpack
+uint16 log_bms_current
+uint16[16] log_bms_vol_ceil
+uint16 log_bms_temp_pcb
+uint16 log_bms_temp_afe
+uint16 log_bms_temp_ceil
+uint16 log_bms_reserve_flag
+uint32 log_bms_rtc_time

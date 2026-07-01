@@ -1,1 +1,1 @@
-uint8[256] tts_path
+char[256] tts_path

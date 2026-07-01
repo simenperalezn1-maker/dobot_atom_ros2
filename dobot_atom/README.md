@@ -108,6 +108,82 @@ string current_action   # 算法当前正在执行的动作
 bool flag  # true: 上肢有控制，false: 上肢无控制
 ```
 
+#### PosControlCmd.msg
+
+位置控制关节位控命令
+
+```
+# PosControlCommand constants
+uint8 SWITCH_MODE=0
+uint8 MOVE_L=1
+uint8 MOVE_J=2
+uint8 RUN_TO=3
+uint8 CART_JOG=4
+uint8 STOP_MOTION=5
+
+uint8 command_type
+float64[<=7] left_q
+float64[<=7] right_q
+float64[<=3] hips_q
+float64[<=6] left_pose
+float64[<=6] right_pose
+float64[<=1] hips_height
+int32[<=6] left_cart_jog
+int32[<=6] right_cart_jog
+int32[<=1] hips_cart_jog
+int32 stop
+float64 speed
+int32 target_mode
+uint32 command_id
+uint64 timestamp
+```
+
+#### CartTargetPose.msg
+
+位控目标笛卡尔位姿
+
+```
+float64[6] left_pose
+float64[6] right_pose
+float64 hips_height
+```
+
+#### PosControlJointQ.msg
+
+位控关节角状态
+
+```
+float64[7] left_q
+float64[7] right_q
+float64[3] hips_q
+```
+
+#### PosControlState.msg
+
+位控应用状态
+
+```
+int32 CONTROL_MODE_MIT=0
+int32 CONTROL_MODE_POSITION=1
+int32 ERROR_OK=0
+int32 ERROR_INIT_FAILED=1
+int32 ERROR_SERVO_ENABLE=2
+int32 ERROR_IK_FAILED=3
+int32 ERROR_PLAN_FAILED=4
+int32 ERROR_INVALID_DIMENSION=5
+int32 ERROR_REF_SPEED_LIMIT=6
+int32 STATUS_READY=0
+int32 STATUS_RUNNING=1
+int32 STATUS_PLAN_STOP=2
+int32 STATUS_ERROR=3
+
+CartTargetPose pose
+int32[3] error_code
+int32[3] status_code
+int32 control_mode
+PosControlJointQ joint_q
+```
+
 ### 上肢相关消息
 
 #### UpperState.msg
@@ -336,6 +412,8 @@ JoystickValue btn_turn    # 右旋钮键值
 | `rt/lower/cmd`            | LowerCmd           | 下肢控制命令     |
 | `rt/amr/state`            | AMRState           | 轮式底盘状态     |
 | `rt/amr/cmd`              | AMRCommand         | 轮式底盘控制     |
+| `rt/posctl/cmd`           | PosControlCmd      | 位控命令下发     |
+| `rt/posctl/state`         | PosControlState    | 位控状态反馈     |
 | `rt/main/nodes/state`     | MainNodesState     | 关节和CAN板状态  |
 | `rt/clear/errors`         | ClearErrors        | 清除错误         |
 | `rt/hands/state`          | HandsState         | 灵巧手状态       |
@@ -361,7 +439,16 @@ JoystickValue btn_turn    # 右旋钮键值
 - `wireless_remote[12-15]`：RY键值（[-1,0]范围的浮点值）
 - `wireless_remote[16-19]`：LY键值（[0,1]范围的浮点值）
 
-### 3. 灵巧手数组排序
+### 3. 位控接口使用
+
+- 先发送 `rt/posctl/cmd`，并设置 `command_type=SWITCH_MODE`、`target_mode=1`
+- 轮询 `rt/posctl/state`，直到 `control_mode == CONTROL_MODE_POSITION`
+- `MOVE_J` 使用 `left_q/right_q/hips_q`，`MOVE_L` 和 `RUN_TO` 使用 `left_pose/right_pose/hips_height`
+- `RUN_TO` 与 `CART_JOG` 使用 `stop=0` 开始，`stop=1` 停止，发一次即可
+- `left_*` / `right_*` / `hips_*` 长度为 0 表示该部件不参与
+- 长度约束由消息上限和业务逻辑共同保证，例如 `left_q` 最大 7，`left_pose` 最大 6
+
+### 4. 灵巧手数组排序
 
 **关节顺序（从索引0开始）：**
 
@@ -374,7 +461,7 @@ JoystickValue btn_turn    # 右旋钮键值
 - 大拇指弯曲角度：-13°~53.6°（-0.2269rad~0.9346rad）
 - 大拇指旋转角度：90°~165°（1.5708rad~2.8798rad）
 
-### 4. 轮式底盘(AMR)使用
+### 5. 轮式底盘(AMR)使用
 
 #### 遥控功能
 1. 发送 `START_REMOTE` 请求。
@@ -387,7 +474,7 @@ JoystickValue btn_turn    # 右旋钮键值
    - `RUNNING (2)`: 运行中
    - `COMPLETED (3)`: 已完成
 
-### 5. 实时话题标识
+### 6. 实时话题标识
 
 所有需要实时发布的话题均以 `rt/` 开头。
 
