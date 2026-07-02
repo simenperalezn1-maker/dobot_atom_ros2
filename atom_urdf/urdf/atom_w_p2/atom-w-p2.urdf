@@ -9,7 +9,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/chassis_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/chassis_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
@@ -18,7 +18,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/chassis_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/chassis_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -31,7 +31,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/crus_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/crus_pitch_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
@@ -40,7 +40,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/crus_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/crus_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -60,7 +60,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/thigh_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/thigh_pitch_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
@@ -69,7 +69,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/thigh_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/thigh_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -89,7 +89,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/plevis_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/plevis_pitch_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.498039215686275 0.498039215686275 0.498039215686275 1" />
@@ -98,7 +98,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/plevis_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/plevis_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -118,7 +118,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/body_yaw_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/body_yaw_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
@@ -127,7 +127,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/body_yaw_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/body_yaw_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -147,7 +147,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/head_yaw_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/head_yaw_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
@@ -156,7 +156,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/head_yaw_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/head_yaw_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -176,7 +176,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/head_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/head_pitch_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -185,7 +185,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/head_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/head_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -205,7 +205,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_shoulder_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_shoulder_pitch_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -214,7 +214,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_shoulder_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_shoulder_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -234,7 +234,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_shoulder_roll_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_shoulder_roll_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -243,7 +243,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_shoulder_roll_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_shoulder_roll_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -263,7 +263,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_shoulder_yaw_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_shoulder_yaw_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -272,7 +272,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_shoulder_yaw_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_shoulder_yaw_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -292,7 +292,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_elbow_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_elbow_pitch_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -301,7 +301,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_elbow_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_elbow_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -321,7 +321,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_elbow_roll_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_elbow_roll_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -330,7 +330,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_elbow_roll_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_elbow_roll_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -350,7 +350,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_wrist_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_wrist_pitch_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -359,7 +359,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_wrist_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_wrist_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -379,7 +379,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_wrist_yaw_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_wrist_yaw_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -388,7 +388,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/left_wrist_yaw_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/left_wrist_yaw_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -408,7 +408,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_shoulder_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_shoulder_pitch_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -417,7 +417,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_shoulder_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_shoulder_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -437,7 +437,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_shoulder_roll_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_shoulder_roll_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -446,7 +446,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_shoulder_roll_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_shoulder_roll_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -466,7 +466,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_shoulder_yaw_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_shoulder_yaw_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -475,7 +475,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_shoulder_yaw_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_shoulder_yaw_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -495,7 +495,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_elbow_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_elbow_pitch_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -504,7 +504,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_elbow_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_elbow_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -524,7 +524,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_elbow_roll_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_elbow_roll_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -533,7 +533,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_elbow_roll_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_elbow_roll_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -553,7 +553,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_wrist_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_wrist_pitch_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -562,7 +562,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_wrist_pitch_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_wrist_pitch_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -582,7 +582,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_wrist_yaw_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_wrist_yaw_link.STL" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -591,7 +591,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/robot/right_wrist_yaw_link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/robot/right_wrist_yaw_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -635,7 +635,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/flange/flange_0518_fixed.obj" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/flange/flange_0518_fixed.obj" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -659,7 +659,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/flange/flange_0518_fixed.obj" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/flange/flange_0518_fixed.obj" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -699,12 +699,12 @@
   <link name="right_ag95_gripper_base_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/base_link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/base_link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/base_link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/base_link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -738,12 +738,12 @@
   <link name="right_ag95_gripper_finger1_knuckle_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -762,12 +762,12 @@
   <link name="right_ag95_gripper_finger2_knuckle_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -802,12 +802,12 @@
   <link name="right_ag95_gripper_finger1_finger_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -826,12 +826,12 @@
   <link name="right_ag95_gripper_finger2_finger_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -866,12 +866,12 @@
   <link name="right_ag95_gripper_finger1_inner_knuckle_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -890,12 +890,12 @@
   <link name="right_ag95_gripper_finger2_inner_knuckle_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -930,12 +930,12 @@
   <link name="right_ag95_gripper_finger1_finger_tip_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -954,12 +954,12 @@
   <link name="right_ag95_gripper_finger2_finger_tip_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -1044,12 +1044,12 @@
   <link name="left_ag95_gripper_base_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/base_link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/base_link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/base_link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/base_link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -1083,12 +1083,12 @@
   <link name="left_ag95_gripper_finger1_knuckle_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -1107,12 +1107,12 @@
   <link name="left_ag95_gripper_finger2_knuckle_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/crank_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -1147,12 +1147,12 @@
   <link name="left_ag95_gripper_finger1_finger_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -1171,12 +1171,12 @@
   <link name="left_ag95_gripper_finger2_finger_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/rod_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -1211,12 +1211,12 @@
   <link name="left_ag95_gripper_finger1_inner_knuckle_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -1235,12 +1235,12 @@
   <link name="left_ag95_gripper_finger2_inner_knuckle_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/proximal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -1275,12 +1275,12 @@
   <link name="left_ag95_gripper_finger1_finger_tip_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -1299,12 +1299,12 @@
   <link name="left_ag95_gripper_finger2_finger_tip_link">
     <visual>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/ag95/visual/distal_phalanx_Link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
     <inertial>
@@ -1383,7 +1383,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/camera_bracket/camera_bracket_right.stl" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/camera_bracket/camera_bracket_right.stl" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -1392,7 +1392,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/camera_bracket/camera_bracket_right.stl" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/camera_bracket/camera_bracket_right.stl" />
       </geometry>
     </collision>
   </link>
@@ -1413,7 +1413,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/camera_bracket/camera_bracket_left.stl" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/camera_bracket/camera_bracket_left.stl" />
       </geometry>
       <material name="">
         <color rgba="1 1 1 1" />
@@ -1422,7 +1422,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/camera_bracket/camera_bracket_left.stl" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/camera_bracket/camera_bracket_left.stl" />
       </geometry>
     </collision>
   </link>
@@ -1443,7 +1443,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/wheels/left_whell_pitch_Link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/wheels/left_whell_pitch_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.86667 0.9098 1 1" />
@@ -1452,7 +1452,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/wheels/left_whell_pitch_Link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/wheels/left_whell_pitch_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -1465,7 +1465,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/wheels/right_whell_pitch_Link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/wheels/right_whell_pitch_Link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.86667 0.9098 1 1" />
@@ -1474,7 +1474,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dobot_urdf/meshes/atom_w_p2/wheels/right_whell_pitch_Link.STL" />
+        <mesh filename="package://atom_urdf/meshes/atom_w_p2/wheels/right_whell_pitch_Link.STL" />
       </geometry>
     </collision>
   </link>
