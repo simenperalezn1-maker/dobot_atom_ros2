@@ -1492,4 +1492,12 @@
     <axis xyz="0 1 0" />
     <limit lower="-3.1416" upper="3.1416" effort="6.4" velocity="31.416" />
   </joint>
+    <!-- imu -->
+  <link name="imu_link">
+  </link>
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="0 0 -0.18" rpy="0 0 0" />
+    <parent link="torso_link" />
+    <child link="imu_link" />
+  </joint>
 </robot>

@@ -3,9 +3,9 @@
  * @brief Atom机器人灵巧手控制程序
  * @details 演示如何使用ROS2控制Atom机器人灵巧手进行抓握和松开动作，支持平滑运动和时序控制
  * @author futingxing
- * @date 2025-09-01
+ * @date 2026-06-01
  * @version 1.0.0
- * @copyright Copyright (c) 2025 Dobot. All rights reserved.
+ * @copyright Copyright (c) 2026 Dobot. All rights reserved.
  */
 
 #include "rclcpp/rclcpp.hpp"

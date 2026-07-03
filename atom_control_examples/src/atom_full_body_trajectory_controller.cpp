@@ -3,9 +3,9 @@
  * @brief Atom机器人全身轨迹跟踪控制器
  * @details 实现全身关节轨迹跟踪控制，包括腿部12关节、手臂17关节和灵巧手12关节
  * @author futingxing
- * @date 2025-09-01
+ * @date 2026-06-01
  * @version 1.0.0
- * @copyright Copyright (c) 2025 Dobot. All rights reserved.
+ * @copyright Copyright (c) 2026 Dobot. All rights reserved.
  */
 
 #include <rclcpp/rclcpp.hpp>

@@ -3,9 +3,9 @@
  * @brief Atom机器人关节数据记录器
  * @details 记录机器人所有关节角度数据到文件，支持可配置的记录参数
  * @author futingxing
- * @date 2025-09-01
+ * @date 2026-06-01
  * @version 1.0.0
- * @copyright Copyright (c) 2025 Dobot. All rights reserved.
+ * @copyright Copyright (c) 2026 Dobot. All rights reserved.
  */
 
 #include <rclcpp/rclcpp.hpp>

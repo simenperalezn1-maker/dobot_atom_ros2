@@ -3,9 +3,9 @@
  * @brief Atom机器人灵巧手状态读取程序
  * @details 读取并显示灵巧手12个手指电机状态，包含左右手各6个自由度的详细信息
  * @author futingxing
- * @date 2025-09-01
+ * @date 2026-06-01
  * @version 1.0.0
- * @copyright Copyright (c) 2025 Dobot. All rights reserved.
+ * @copyright Copyright (c) 2026 Dobot. All rights reserved.
  */
 
 #include "rclcpp/rclcpp.hpp"

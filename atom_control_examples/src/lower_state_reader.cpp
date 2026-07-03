@@ -3,9 +3,9 @@
  * @brief Atom机器人下肢状态读取程序
  * @details 读取并显示下肢12个电机状态、IMU数据、BMS电池信息
  * @author futingxing
- * @date 2025-09-01
+ * @date 2026-06-01
  * @version 1.0.0
- * @copyright Copyright (c) 2025 Dobot. All rights reserved.
+ * @copyright Copyright (c) 2026 Dobot. All rights reserved.
  */
 #include "rclcpp/rclcpp.hpp"
 #include "dobot_atom/msg/lower_state.hpp"

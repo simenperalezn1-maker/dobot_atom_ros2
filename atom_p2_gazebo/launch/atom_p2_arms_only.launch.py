@@ -1,21 +1,27 @@
 #!/usr/bin/env python3
 """
-Atom W-P3 Gazebo launch (default) - Full simulation with wheeled humanoid robot.
+Atom P2 Arms-only launch - Arms control only.
 """
 
 import os
+import time
+import random
+import string
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, TimerAction
+from launch.actions import ExecuteProcess, IncludeLaunchDescription, DeclareLaunchArgument, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, Command, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
-    package_name = 'atom_gazebo'
-    urdf_name = 'atom_gazebo_control.xacro'
+    timestamp = str(int(time.time()))
+    random_suffix = ''.join(random.choices(string.ascii_lowercase, k=4))
+    robot_name_in_model = f'atom_p2_arms_{timestamp}_{random_suffix}'
+
+    urdf_name = "atom_p2/atom_gazebo_control.xacro"
 
     use_sim_time_arg = DeclareLaunchArgument(
         'use_sim_time', default_value='true',
@@ -32,19 +38,9 @@ def generate_launch_description():
         description='Show Gazebo GUI'
     )
 
-    world_arg = DeclareLaunchArgument(
-        'world',
-        default_value=PathJoinSubstitution([
-            FindPackageShare('atom_urdf'), 'worlds', 'empty.world'
-        ]),
-        description='Gazebo world'
-    )
-
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
-            PathJoinSubstitution([
-                FindPackageShare('gazebo_ros'), 'launch', 'gazebo.launch.py'
-            ])
+            os.path.join(get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')
         ]),
         launch_arguments={
             'paused': LaunchConfiguration('paused'),
@@ -56,7 +52,7 @@ def generate_launch_description():
 
     robot_description_content = Command([
         'xacro ',
-        PathJoinSubstitution([FindPackageShare(package_name), 'urdf', urdf_name])
+        PathJoinSubstitution([FindPackageShare('atom_urdf'), 'urdf', urdf_name])
     ])
     robot_description = {'robot_description': robot_description_content}
 
@@ -70,39 +66,33 @@ def generate_launch_description():
         package='gazebo_ros', executable='spawn_entity.py',
         arguments=[
             '-topic', 'robot_description',
-            '-entity', 'atom_w_p3',
+            '-entity', robot_name_in_model,
             '-z', '0.1', '-timeout', '60'
         ],
         output='screen'
     )
 
-    controller_manager = Node(
-        package='controller_manager', executable='ros2_control_node',
-        parameters=[
-            robot_description,
-            PathJoinSubstitution([
-                FindPackageShare(package_name), 'config', 'atom_w_p3_controllers.yaml'
-            ]),
-            {'use_sim_time': LaunchConfiguration('use_sim_time')}
-        ],
+    load_joint_state_broadcaster = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
+             'joint_state_broadcaster'],
         output='screen'
     )
 
-    joint_state_broadcaster_spawner = Node(
-        package='controller_manager', executable='spawner',
-        arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
+    load_left_arm_controller = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
+             'left_arm_controller'],
         output='screen'
     )
 
-    joint_trajectory_controller_spawner = Node(
-        package='controller_manager', executable='spawner',
-        arguments=['atom_w_p3_joint_trajectory_controller', '--controller-manager', '/controller_manager'],
+    load_right_arm_controller = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
+             'right_arm_controller'],
         output='screen'
     )
 
     return LaunchDescription([
-        use_sim_time_arg, paused_arg, gui_arg, world_arg,
-        gazebo, node_robot_state_publisher, spawn_entity, controller_manager,
-        TimerAction(period=3.0, actions=[joint_state_broadcaster_spawner]),
-        TimerAction(period=4.0, actions=[joint_trajectory_controller_spawner])
+        use_sim_time_arg, paused_arg, gui_arg, gazebo,
+        node_robot_state_publisher, spawn_entity,
+        TimerAction(period=3.0, actions=[load_joint_state_broadcaster]),
+        TimerAction(period=4.0, actions=[load_left_arm_controller, load_right_arm_controller])
     ])

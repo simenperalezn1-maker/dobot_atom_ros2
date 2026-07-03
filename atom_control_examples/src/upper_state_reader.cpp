@@ -3,9 +3,9 @@
  * @brief Atom机器人上肢状态读取程序
  * @details 读取并显示上肢17个电机状态（机械臂+头部+躯干）、BMS电池信息
  * @author futingxing
- * @date 2025-09-01
+ * @date 2026-06-01
  * @version 1.0.0
- * @copyright Copyright (c) 2025 Dobot. All rights reserved.
+ * @copyright Copyright (c) 2026 Dobot. All rights reserved.
  */
 
 #include "rclcpp/rclcpp.hpp"

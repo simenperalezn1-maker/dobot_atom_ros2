@@ -1,34 +1,34 @@
-# Dobot Atom 机器人 ROS2 支持包
+# Dobot Atom Robot ROS2 Support Package
 
-本项目为 Dobot Atom 人形机器人提供完整的 ROS2 支持，包括机器人模型、仿真环境、控制接口和示例程序。
+This project provides complete ROS2 support for the Dobot Atom humanoid robot, including robot models, simulation environments, control interfaces, and example programs.
 
-**更新日期**: 2025-9-2
-**开发及维护**: dobot_futingxing
+**Update Date**: 2025-9-2
+**Development and maintenance**: dobot_futingxing
 
-## 📋 目录
+## 📋 Table of Contents
 
-- [环境配置](#环境配置)
-- [安装说明](#安装说明)
-- [快速开始](#快速开始)
-- [包说明](#包说明)
-- [故障排除](#故障排除)
+- [Environment Configuration](#environment-configuration)
+- [Installation Instructions](#installation-instructions)
+- [Quick Start](#quick-start)
+- [Package Description](#package-description)
+- [Troubleshooting](#troubleshooting)
 
-## 🚀 环境配置
+## 🚀 Environment Configuration
 
-### 系统要求
+### System Requirements
 
-系统和 ROS2 版本：
+System and ROS2 versions:
 
-| 系统         | ROS2 版本 |
-| ------------ | --------- |
-| Ubuntu 20.04 | Foxy      |
-| Ubuntu 22.04 | Humble    |
+| System       | ROS2 Version |
+| ------------ | ------------ |
+| Ubuntu 20.04 | Foxy         |
+| Ubuntu 22.04 | Humble       |
 
-### 依赖安装
+### Dependency Installation
 
-#### **安装 ROS2**
+#### **Install ROS2**
 
-##### **1. 设置编码**
+##### **1. Set Encoding**
 
 ```bash
 sudo apt update && sudo apt install locales
@@ -37,7 +37,7 @@ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
 ```
 
-##### **2. 添加源**
+##### **2. Add Sources**
 
 ```bash
 sudo apt update && sudo apt install curl gnupg lsb-release
@@ -45,7 +45,7 @@ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(source /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 ```
 
-##### **3. 安装 ROS2**
+##### **3. Install ROS2**
 
 ```bash
 sudo apt update
@@ -53,44 +53,44 @@ sudo apt upgrade
 sudo apt install ros-humble-desktop
 ```
 
-##### **4. 设置环境变量**
+##### **4. Set Environment Variables**
 
 ```bash
 source /opt/ros/humble/setup.bash
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 ```
 
-##### **5. 小海龟仿真示例**
+##### **5. Turtlesim Simulation Example**
 
-启动两个终端，分别运行以下指令：
+Start two terminals and run the following commands respectively:
 
 ```bash
 ros2 run turtlesim turtlesim_node
 ros2 run turtlesim turtle_teleop_key
 ```
 
-- 第一句指令将启动一个蓝色背景的海龟仿真器。
-- 第二句指令将启动键盘控制节点，使用键盘上的“上下左右”按键控制小海龟运动。
+- The first command will start a turtle simulator with a blue background.
+- The second command will start a keyboard control node, using the "up, down, left, right" keys on the keyboard to control the turtle's movement.
 
 ![turtlesim](/image/image2544.png)
 
 ---
 
-#### **Gazebo 安装**
+#### **Gazebo Installation**
 
-##### **安装**
+##### **Installation**
 
 ```bash
 sudo apt install ros-humble-gazebo-*
 ```
 
-##### **环境变量添加**
+##### **Add Environment Variables**
 
 ```bash
 echo "source /usr/share/gazebo/setup.bash" >> ~/.bashrc
 ```
 
-##### **运行**
+##### **Run**
 
 ```bash
 ros2 launch gazebo_ros gazebo.launch.py
@@ -98,257 +98,267 @@ ros2 launch gazebo_ros gazebo.launch.py
 
 ---
 
-#### **MoveIt 安装**
+#### **MoveIt Installation**
 
-##### **安装**
+##### **Installation**
 
 ```bash
 sudo apt-get install ros-humble-moveit
 ```
 
-#### 2. 安装依赖
+#### 2. Install Dependencies
 
 ```bash
-# ROS2 控制相关
+# ROS2 control related
 sudo apt install ros-humble-ros2-control ros-humble-ros2-controllers
-# URDF 和可视化工具
+# URDF and visualization tools
 sudo apt install ros-humble-urdf ros-humble-xacro
 sudo apt install ros-humble-robot-state-publisher ros-humble-joint-state-publisher
 sudo apt install ros-humble-joint-state-publisher-gui
 
-# 构建工具
+# Build tools
 sudo apt install python3-colcon-common-extensions
 sudo apt install python3-rosdep python3-vcstool
 
-# DDS 实现
-sudo apt install ros-humble-rmw-cyclonedds-cpp
+# DDS implementation
+sudo apt install ros-humble-rmw-cyclonedx-cpp
 
 ```
 
-## 📦 安装说明
+## 📦 Installation Instructions
 
-### 1. 克隆仓库
+### 1. Clone Repository
 
 ```bash
-# 创建工作空间
+# Create workspace
 mkdir -p ~/atom_ros2_ws/src
 cd ~/atom_ros2_ws/src
 
-# 克隆本仓库
+# Clone this repository
 git clone https://github.com/Dobot-Arm/dobot_atom_ros2.git
 ```
 
-### 2. 安装依赖
+### 2. Install Dependencies
 
 ```bash
 cd ~/atom_ros2_ws
 
-# 初始化 rosdep（如果是第一次使用）
+# Initialize rosdep (if using for the first time)
 sudo rosdep init
 rosdep update
 
-# 安装包依赖
+# Install package dependencies
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
-### 3. 编译工作空间
+### 3. Build Workspace
 
 ```bash
 cd ~/atom_ros2_ws
 colcon build
 
-# 设置环境变量
+# Set environment variables
 source install/setup.bash
 ```
 
-### 4. 配置环境
+### 4. Configure Environment
 
 ```bash
-# 复制配置文件到用户目录
+# Copy configuration files to user directory
 cp src/atom_ros2/setup*.sh ~/
 
-# 根据需要选择配置文件：
-# 1. 连接真实机器人
+# Choose configuration file as needed:
+# 1. Connect to real robot
 source ~/setup.sh
 
-# 2. 本地仿真环境
+# 2. Local simulation environment
 source ~/setup_local.sh
 
-# 3. 默认配置
+# 3. Default configuration
 source ~/setup_default.sh
 
-#如需永久生效可写入环境变量中
+# For permanent effect, write to environment variables
 sudo gedit ~/.bashrc
 ```
 
-## 🔧 配置说明
+## 🔧 Configuration Instructions
 
-### 网络配置
+### Network Configuration
 
-如果连接真实机器人，需要配置网络接口：
+If connecting to a real robot, network interface configuration is required:
 
-   1.设置网段至192.168.8.xx：
+1. Set network segment to 192.168.8.xx:
    ![rviz](/image/IP.jpg)
-
-2. 查看网络接口：
+2. View network interface:
 
 ```bash
 ifconfig
-# 或
+# or
 ip addr show
 ```
 
-3. 修改 `setup.sh` 中的网络接口名称：
+3. Modify the network interface name in `setup.sh`:
 
 ```bash
-# 编辑配置文件
+# Edit configuration file
 gedit ~/setup.sh
 
-# 修改这一行中的 "eth0" 为实际的网络接口名
+# Modify "eth0" in this line to the actual network interface name
 export CYCLONEDDS_URI='<CycloneDDS><Domain><General><Interfaces>
     <NetworkInterface name="eth0" priority="default" multicast="default" />
 </Interfaces></General></Domain></CycloneDDS>'
 ```
 
-### 连接测试
+### Connection Test
 
-完成上面的配置后，先重启一下 `ros2 daemon`： `ros2 daemon stop` 然后执行 `ros2 daemon start`
+After completing the above configuration, restart `ros2 daemon`: `ros2 daemon stop` then execute `ros2 daemon start`
 
 ```bash
 source ~/setup.sh
 ros2 topic list
 ```
 
-可以看见如下话题：
+You can see the following topics:
 
 ![topic](/image/topic.jpg)
 
-打开终端随意查看一个话题：ros2 topic echo /xxxx 有数据说明通讯正常例如：
+Open terminal and view any topic: ros2 topic echo /xxxx. If there is data, it means communication is normal, for example:
 
 ![topic_info.](/image/topic_info.jpg)
 
-## 🎯 快速开始
+## 🎯 Quick Start
 
-请参考各功能模块内README.md
+Please refer to README.md in each functional module
 
-## 📁 包说明
+## 📁 Package Description
 
 ### atom_urdf
 
-- **功能**: Atom 机器人的 URDF/XACRO 模型定义
-- **内容**:
-  - `urdf/atom.urdf`: 主要机器人模型文件，包含完整的机器人几何结构和关节定义
-  - `urdf/atom_gazebo.xacro`: Gazebo 仿真专用配置，包含物理属性和传感器定义
-  - `meshes/`: 机器人3D网格文件，用于可视化和碰撞检测
-  - `config/`: 机器人参数配置文件
+- **Function**: URDF/XACRO model definition for Atom robot
+- **Contents**:
+  - `urdf/atom.urdf`: Main robot model file containing complete robot geometric structure and joint definitions
+  - `urdf/atom.xacro`: Parameterized robot model file supporting configurable robot description
+  - `urdf/atom_gazebo.xacro`: Gazebo simulation specific configuration including physical properties and sensor definitions
+  - `meshes/`: Robot 3D mesh files for visualization and collision detection
+  - `config/`: Robot parameter configuration files
 
 ### atom_gazebo
 
-- **功能**: Gazebo 仿真环境支持，提供完整的机器人仿真功能
-- **内容**:
-  - `launch/atom_gazebo.launch.py`: 完整的Gazebo仿真启动文件，包含世界环境和机器人加载
-  - `launch/atom_arms_only.launch.py`: 仅手臂部分的仿真启动文件
-  - `scripts/control_arms.py`: 双臂控制脚本，支持轨迹规划和执行
-  - 支持ROS2 Control框架，提供标准化的机器人控制接口
+- **Function**: (Default) Atom W-P3 wheeled humanoid robot Gazebo simulation
+- **Contents**:
+  - `launch/atom_gazebo.launch.py`: Full body simulation launch file
+  - `launch/atom_arms_only.launch.py`: Arms-only simulation launch file
+  - `urdf/atom_gazebo_control.xacro`: ros2_control simulation overlay
+  - `config/atom_w_p3_controllers.yaml`: Controller parameter configuration
+  - `worlds/empty.world`: Empty world file
+  - Supports ros2_control framework with wheeled chassis + 22-DOF body control
+
+### atom_p2_gazebo
+
+- **Function**: Atom P2 legged humanoid robot Gazebo simulation
+- **Contents**:
+  - `launch/atom_p2_gazebo.launch.py`: Full body simulation launch file
+  - `launch/atom_p2_arms_only.launch.py`: Arms-only simulation launch file
+  - `scripts/control_arms.py`: Dual arm control script
 
 ### dobot_atom
 
-- **功能**: Atom 机器人消息定义
-- **内容**:
-  - `msg/`: 自定义消息类型
-  - 机器人状态和控制消息定义
+- **Function**: Atom robot message definitions
+- **Contents**:
+  - `msg/`: Custom message types
+  - Robot state and control message definitions
 
     ![interface](/image/interface.jpg)
 
 ### dobot_atom_rviz
 
-- **功能**: RViz 可视化配置
-- **内容**:
-  - `launch/dobot_rviz.launch.py`: RViz 启动文件
-  - `rviz/`: RViz 配置文件
+- **Function**: RViz visualization configuration
+- **Contents**:
+  - `launch/dobot_rviz.launch.py`: RViz launch file
+  - `rviz/`: RViz configuration files
 
     ![rviz](/image/rviz.jpg)
 
 ### atom_control_examples
 
-- **功能**: 控制示例程序(详细说明见atom_control_examples/README.md)
-- **内容**:
-  - 各种控制算法示例
-  - 运动规划示例
-  - 传感器数据处理示例
+- **Function**: Control example programs (detailed description in atom_control_examples/README.md)
+- **Contents**:
+  - Various control algorithm examples
+  - Motion planning examples
+  - Sensor data processing examples
 
-## 🐛 故障排除
+## 🐛 Troubleshooting
 
-### 常见问题
+### Common Issues
 
-#### 1. Gazebo 启动失败
+#### 1. Gazebo Launch Failure
 
 ```bash
-# 检查 Gazebo 是否正确安装
+# Check if Gazebo is correctly installed
 gazebo --version
 
-# 重新安装 Gazebo
+# Reinstall Gazebo
 sudo apt install gazebo
 ```
 
-#### 2. 控制器加载失败
+#### 2. Controller Loading Failure
 
 ```bash
-# 检查控制器状态
+# Check controller status
 ros2 control list_controllers
 
-# 手动加载控制器
+# Manually load controller
 ros2 control load_controller joint_state_broadcaster
 ros2 control set_controller_state joint_state_broadcaster active
 ```
 
-#### 3. 网络连接问题
+#### 3. Network Connection Issues
 
 ```bash
-# 检查 DDS 发现
+# Check DDS discovery
 ros2 daemon stop
 ros2 daemon start
 
-# 检查话题
+# Check topics
 ros2 topic list
 ```
 
-#### 4. 编译错误
+#### 4. Compilation Errors
 
 ```bash
-# 清理并重新编译
+# Clean and rebuild
 cd ~/atom_ros2_ws
 rm -rf build install log
 colcon build
 ```
 
-### 性能优化
+### Performance Optimization
 
-#### 1. Gazebo 性能
+#### 1. Gazebo Performance
 
-- 关闭不必要的 GUI 面板
-- 降低物理引擎更新频率
-- 使用无头模式：`gui:=false`
+- Close unnecessary GUI panels
+- Reduce physics engine update frequency
+- Use headless mode: `gui:=false`
 
-#### 2. DDS 优化配置合适的网络接口
+#### 2. DDS Optimization Configure Appropriate Network Interface
 
-- 调整 DDS 域 ID
+- Adjust DDS domain ID
 
-## 📚 参考资料
+## 📚 References
 
-- [ROS2 官方文档](https://docs.ros.org/en/humble/)
-- [Gazebo 仿真教程](http://gazebosim.org/tutorials)
-- [ros2_control 文档](https://control.ros.org/)
-- [URDF 教程](http://wiki.ros.org/urdf/Tutorials)
+- [ROS2 Official Documentation](https://docs.ros.org/en/humble/)
+- [Gazebo Simulation Tutorial](http://gazebosim.org/tutorials)
+- [ros2_control Documentation](https://control.ros.org/)
+- [URDF Tutorial](http://wiki.ros.org/urdf/Tutorials)
 
-## 📞 支持
+## 📞 Support
 
-如有问题，请：
+If you have issues, please:
 
-1. 查看本 README 的故障排除部分
-2. 搜索已有的 Issues
-3. 创建新的 Issue 并提供详细信息
+1. Check the troubleshooting section of this README
+2. Search existing Issues
+3. Create a new Issue with detailed information
 
 ---
 
-**注意**: 请根据实际的机器人硬件接口和通信协议调整配置文件和示例代码。
+**Note**: Please adjust configuration files and example code according to actual robot hardware interfaces and communication protocols.

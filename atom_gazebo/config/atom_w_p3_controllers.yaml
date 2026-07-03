@@ -1,0 +1,185 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    atom_w_p3_joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    left_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    right_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    head_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    body_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    left_wheel_controller:
+      type: velocity_controllers/JointGroupVelocityController
+
+    right_wheel_controller:
+      type: velocity_controllers/JointGroupVelocityController
+
+atom_w_p3_joint_trajectory_controller:
+  ros__parameters:
+    joints:
+      - calf_pitch_joint
+      - thigh_pitch_joint
+      - waist_pitch_joint
+      - torso_yaw_joint
+      - head_yaw_joint
+      - head_pitch_joint
+      - left_shoulder_pitch_joint
+      - left_shoulder_roll_joint
+      - left_shoulder_yaw_joint
+      - left_elbow_pitch_joint
+      - left_elbow_roll_joint
+      - left_wirst_pitch_joint
+      - left_wirst_yaw_joint
+      - right_shoulder_pitch_joint
+      - right_shoulder_roll_joint
+      - right_shoulder_yaw_joint
+      - right_elbow_pitch_joint
+      - right_elbow_roll_joint
+      - right_wirst_pitch_joint
+      - right_wirst_yaw_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: true
+    constraints:
+      stopped_velocity_tolerance: 0.05
+      goal_time: 10.0
+
+body_controller:
+  ros__parameters:
+    joints:
+      - calf_pitch_joint
+      - thigh_pitch_joint
+      - waist_pitch_joint
+      - torso_yaw_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: true
+    constraints:
+      stopped_velocity_tolerance: 0.01
+      goal_time: 0.6
+
+head_controller:
+  ros__parameters:
+    joints:
+      - head_yaw_joint
+      - head_pitch_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: true
+    constraints:
+      stopped_velocity_tolerance: 0.01
+      goal_time: 0.6
+
+left_arm_controller:
+  ros__parameters:
+    joints:
+      - left_shoulder_pitch_joint
+      - left_shoulder_roll_joint
+      - left_shoulder_yaw_joint
+      - left_elbow_pitch_joint
+      - left_elbow_roll_joint
+      - left_wirst_pitch_joint
+      - left_wirst_yaw_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: true
+    constraints:
+      stopped_velocity_tolerance: 0.01
+      goal_time: 0.6
+
+right_arm_controller:
+  ros__parameters:
+    joints:
+      - right_shoulder_pitch_joint
+      - right_shoulder_roll_joint
+      - right_shoulder_yaw_joint
+      - right_elbow_pitch_joint
+      - right_elbow_roll_joint
+      - right_wirst_pitch_joint
+      - right_wirst_yaw_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: true
+    constraints:
+      stopped_velocity_tolerance: 0.01
+      goal_time: 0.6
+
+left_wheel_controller:
+  ros__parameters:
+    joints:
+      - left_wheel_joint
+    command_interfaces:
+      - velocity
+    state_interfaces:
+      - velocity
+
+right_wheel_controller:
+  ros__parameters:
+    joints:
+      - right_wheel_joint
+    command_interfaces:
+      - velocity
+    state_interfaces:
+      - velocity
+
+joint_state_broadcaster:
+  ros__parameters:
+    joints:
+      - left_wheel_joint
+      - right_wheel_joint
+      - calf_pitch_joint
+      - thigh_pitch_joint
+      - waist_pitch_joint
+      - torso_yaw_joint
+      - head_yaw_joint
+      - head_pitch_joint
+      - left_shoulder_pitch_joint
+      - left_shoulder_roll_joint
+      - left_shoulder_yaw_joint
+      - left_elbow_pitch_joint
+      - left_elbow_roll_joint
+      - left_wirst_pitch_joint
+      - left_wirst_yaw_joint
+      - right_shoulder_pitch_joint
+      - right_shoulder_roll_joint
+      - right_shoulder_yaw_joint
+      - right_elbow_pitch_joint
+      - right_elbow_roll_joint
+      - right_wirst_pitch_joint
+      - right_wirst_yaw_joint
+    interfaces:
+      - position
+      - velocity
+      - effort

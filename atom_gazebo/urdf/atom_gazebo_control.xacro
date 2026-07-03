@@ -1,103 +1,64 @@
 <?xml version="1.0"?>
-<robot name="atom" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="atom_w_p3" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <!-- Include the base robot description -->
-  <xacro:include filename="$(find atom_urdf)/urdf/atom_p2/atom_gazebo.xacro" />
+  <xacro:include filename="$(find atom_urdf)/urdf/atom_w_p3/atom_w_p3.xacro" />
 
-  <!-- ROS2 Control Hardware Interface -->
-  <ros2_control name="AtomHardwareInterface" type="system">
+  <ros2_control name="AtomWP3HardwareInterface" type="system">
     <hardware>
       <plugin>gazebo_ros2_control/GazeboSystem</plugin>
     </hardware>
-    
-    <!-- Left leg joints -->
-    <joint name="leg_l1_joint">
-      <command_interface name="effort"/>
+
+    <joint name="left_wheel_joint">
+      <command_interface name="velocity"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
     </joint>
-    <joint name="leg_l2_joint">
-      <command_interface name="effort"/>
+    <joint name="right_wheel_joint">
+      <command_interface name="velocity"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
     </joint>
-    <joint name="leg_l3_joint">
-      <command_interface name="effort"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
-    <joint name="leg_l4_joint">
-      <command_interface name="effort"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
-    <joint name="leg_l5_joint">
-      <command_interface name="effort"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
-    <joint name="leg_l6_joint">
-      <command_interface name="effort"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
-    
-    <!-- Right leg joints -->
-    <joint name="leg_r1_joint">
-      <command_interface name="effort"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
-    <joint name="leg_r2_joint">
-      <command_interface name="effort"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
-    <joint name="leg_r3_joint">
-      <command_interface name="effort"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
-    <joint name="leg_r4_joint">
-      <command_interface name="effort"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
-    <joint name="leg_r5_joint">
-      <command_interface name="effort"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
-    <joint name="leg_r6_joint">
-      <command_interface name="effort"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
-    <joint name="torso_joint">
+
+    <joint name="calf_pitch_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
     </joint>
-    <!-- Left arm joints -->
-    <joint name="left_shoulder_yaw_joint">
+    <joint name="thigh_pitch_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
     </joint>
+    <joint name="waist_pitch_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="torso_yaw_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="head_yaw_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="head_pitch_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
     <joint name="left_shoulder_pitch_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
@@ -105,6 +66,12 @@
       <state_interface name="effort"/>
     </joint>
     <joint name="left_shoulder_roll_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="left_shoulder_yaw_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
@@ -122,26 +89,19 @@
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
     </joint>
-    <joint name="left_wrist_pitch_joint">
+    <joint name="left_wirst_pitch_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
     </joint>
-    <joint name="left_wrist_yaw_joint">
+    <joint name="left_wirst_yaw_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
     </joint>
-    
-    <!-- Right arm joints -->
-    <joint name="right_shoulder_yaw_joint">
-      <command_interface name="position"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
+
     <joint name="right_shoulder_pitch_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
@@ -149,6 +109,12 @@
       <state_interface name="effort"/>
     </joint>
     <joint name="right_shoulder_roll_joint">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="right_shoulder_yaw_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
@@ -166,43 +132,62 @@
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
     </joint>
-    <joint name="right_wrist_pitch_joint">
+    <joint name="right_wirst_pitch_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
     </joint>
-    <joint name="right_wrist_yaw_joint">
+    <joint name="right_wirst_yaw_joint">
       <command_interface name="position"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
-    
-    <!-- Head joints -->
-    <joint name="head_yaw_joint">
-      <command_interface name="effort"/>
-      <state_interface name="position"/>
-      <state_interface name="velocity"/>
-      <state_interface name="effort"/>
-    </joint>
-    <joint name="head_pitch_joint">
-      <command_interface name="effort"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
     </joint>
   </ros2_control>
 
-  <!-- Gazebo ROS2 Control Plugin -->
   <gazebo>
     <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-      <parameters>$(find atom_urdf)/config/atom_controllers.yaml</parameters>
+      <parameters>$(find atom_gazebo)/config/atom_w_p3_controllers.yaml</parameters>
       <ros>
         <remapping>/tf:=tf</remapping>
         <remapping>/tf_static:=tf_static</remapping>
       </ros>
     </plugin>
+  </gazebo>
+
+  <gazebo reference="left_wheel_link">
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="right_wheel_link">
+    <mu1>0.8</mu1>
+    <mu2>0.8</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="imu_link">
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <imu>
+        <angular_velocity>
+          <x><noise type="gaussian" /><mean>0.0</mean><bias_stddev>0.001</bias_stddev></x>
+          <y><noise type="gaussian" /><mean>0.0</mean><bias_stddev>0.001</bias_stddev></y>
+          <z><noise type="gaussian" /><mean>0.0</mean><bias_stddev>0.001</bias_stddev></z>
+        </angular_velocity>
+        <linear_acceleration>
+          <x><noise type="gaussian" /><mean>0.0</mean><bias_stddev>0.001</bias_stddev></x>
+          <y><noise type="gaussian" /><mean>0.0</mean><bias_stddev>0.001</bias_stddev></y>
+          <z><noise type="gaussian" /><mean>0.0</mean><bias_stddev>0.001</bias_stddev></z>
+        </linear_acceleration>
+      </imu>
+    </sensor>
   </gazebo>
 
 </robot>

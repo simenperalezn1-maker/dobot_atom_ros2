@@ -96,7 +96,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: leg_r6_link
+    Fixed Frame: chassis
     Frame Rate: 30
   Name: root
   Tools:
