@@ -13,8 +13,8 @@ Upper limb control can independently control the upper limb motors to complete o
 | **Interface Name** | **GetFsmId** |
 | --- | --- |
 | Interface definition | RpcErrorCode GetFsmId(int32\_t &fsm\_id); |
-| Function Overview | Get the current state machine id.|
-| Parameters | fsm\_id: The obtained current state machine id.|
+| Function Overview | Get the current state machine ID.|
+| Parameters | fsm\_id: The obtained current state machine ID.|
 | Return value | Returns 0 if the call is successful, otherwise returns the relevant error code, see the error code chapter for details.|
 | Remarks | For details about the state machine ID, please refer to the state machine ID chapter.|
 
@@ -29,18 +29,18 @@ Upper limb control can independently control the upper limb motors to complete o
 | **Interface Name** | **SwitchUpperLimbControl** |
 | --- | --- |
 | Interface definition | RpcErrorCode SwitchUpperLimbControl(bool is\_on); |
-| Function Overview | Switch upper body control.|
-| Parameters | is\_on: true means switching upper limb control to interface control, false means turning off the switch and returning to main operation control and overall machine control.|
+| Function Overview | Switch upper limb control authority.|
+| Parameters | is_on: If true, switches upper limb control to API-based control; if false, disables the switch and reverts to main motion controller’s full-body control.
 | Return value | Returns 0 if the call is successful, otherwise returns the relevant error code, see the error code chapter for details.|
-| Remarks | 1. Switching is only allowed in position control states such as "preparation" and walking state; 2. After entering a state where switching is not allowed, switching will be automatically turned off.|
+| Remarks | 1. Switching is only permitted in position-controlled states such as “preparation” and walking states. 2. After entering a state where switching is not allowed, switching will be automatically turned off.|
 
 | **Interface Name** | **SetVel** |
 | --- | --- |
 | Interface definition | RpcErrorCode SetVel(float vx, float vy, float vyaw, float duration = 1.0); |
-| Function overview | Set speed command.|
-| Parameters | vx: forward and backward movement speed, forward is positive, unit m/s;<br>vy: left and right movement speed, left is positive, unit m/s;<br>vyaw: rotation speed, counterclockwise is positive, unit rad/s;<br>duration: speed command duration, stops after timeout, unit s.|
+| Function overview | Issue a velocity command.|
+| Parameters | vx: forward and backward movement velocity, forward is positive, unit m/s;<br>vy: left and right movement velocity, left is positive, unit m/s;<br>vyaw: rotation velocity, counterclockwise is positive, unit rad/s;<br>duration: velocity command duration, the robot​ stops after timeout, unit s.|
 | Return value | Returns 0 if the call is successful, otherwise returns the relevant error code, see the error code chapter for details.|
-| Remarks | 1. The bottom layer will automatically limit the setting parameters to a reasonable range; 2. The remote control command has a higher priority; 3. The whole machine stops moving: Set the speed command to zero SetVel( 0, 0, 0).|
+| Remarks | 1. The underlying controller​ automatically clamps the setting parameters to a reasonable range; 2. The remote control command has a higher priority; 3. The whole machine stops moving: Issue a zero-velocity​ command：SetVel(0, 0, 0).|
 
 ### 3.2 Error code (RpcErrorCode)
 
@@ -49,10 +49,10 @@ Upper limb control can independently control the upper limb motors to complete o
 | 0 | No errors |
 | 1 | Socket creation failed |
 | 2 | Communication connection failed |
-| 3 | Failed to read response |
+| 3 | Response read failed |
 | 4 | Response data parsing failed |
 | 5 | Response data format error |
-| 6 | Server internal error |
-| 100 | Illegal state jump request, please call in allowed state |
-| 101 | Illegal upper limb control request, please call in allowed state |
-| 102 | Illegal setting speed command request, please call in allowed state |
+| 6 | Internal server error |
+| 100 | Invalid state transition request; invoke only in an allowed state.|
+| 101 | Invalid upper limb control switch request; invoke only in an allowed state. |
+| 102 |	Invalid velocity command request; invoke only in an allowed state. |
