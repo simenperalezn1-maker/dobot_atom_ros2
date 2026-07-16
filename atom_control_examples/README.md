@@ -1,235 +1,235 @@
 # Atom Control Examples
 
-这是一个用于 Dobot Atom 机器人的 ROS2 控制示例包，提供了状态读取和基础控制功能。
+This is a ROS2 control example package for Dobot Atom robot, providing state reading and basic control functions.
 
-## 功能特性
+## Features
 
-### 状态读取程序
+### State Reading Programs
 
-本包提供了四个独立的状态读取程序，分别用于监控机器人的不同部分：
+This package provides four independent state reading programs for monitoring different parts of the robot:
 
-1. **下肢状态读取** (`lower_state_reader`)
+1. **Lower Body State Reader** (`lower_state_reader`)
 
-   - 订阅话题：`/lower/state`
-   - 功能：读取下肢12个电机状态、IMU数据、BMS电池信息
-   - 包含：腿部关节位置、速度、力矩、温度等详细信息
-2. **上肢状态读取** (`upper_state_reader`)
+   - Subscribed topic: `/lower/state`
+   - Function: Read the status of 12 lower body motors, IMU data, BMS battery information
+   - Includes: Detailed information such as leg joint position, velocity, torque, temperature, etc.
+2. **Upper Body State Reader** (`upper_state_reader`)
 
-   - 订阅话题：`/upper/state`
-   - 功能：读取上肢17个电机状态（机械臂+头部+躯干）、BMS电池信息
-   - 包含：机械臂、头部和躯干关节的详细状态信息
-3. **关节CAN板状态读取** (`main_nodes_state_reader`)
+   - Subscribed topic: `/upper/state`
+   - Function: Read the status of 17 upper body motors (robotic arm + head + torso), BMS battery information
+   - Includes: Detailed status information of robotic arm, head and torso joints
+3. **Joint CAN Board State Reader** (`main_nodes_state_reader`)
 
-   - 订阅话题：`/main/nodes/state`
-   - 功能：读取关节CAN板状态和EtherCAT从站信息
-   - 包含：左右腿、躯干、左右臂、头部的伺服状态、错误码、警告码等
-4. **灵巧手状态读取** (`hands_state_reader`)
+   - Subscribed topic: `/main/nodes/state`
+   - Function: Read joint CAN board status and EtherCAT slave information
+   - Includes: Servo status, error codes, warning codes for left/right legs, torso, left/right arms, head
+4. **Dexterous Hand State Reader** (`hands_state_reader`)
 
-   - 订阅话题：`/hands/state`
-   - 功能：读取灵巧手12个手指电机状态
-   - 包含：左右手各6个自由度的位置、速度、力矩、温度信息
+   - Subscribed topic: `/hands/state`
+   - Function: Read the status of 12 finger motors of dexterous hands
+   - Includes: Position, velocity, torque, temperature information for 6 degrees of freedom of each left and right hand
 
-### 控制程序
+### Control Programs
 
-6. **全身轨迹跟踪控制器** (`atom_full_body_trajectory_controller`)
+6. **Full Body Trajectory Tracking Controller** (`atom_full_body_trajectory_controller`)
 
-   - 订阅话题：`/lower/state`, `/upper/state`, `/hands/state`
-   - 发布话题：`/lower/cmd`, `/upper/cmd`, `/hands/cmd`, `/set/fsm/id`
-   - 功能：全身关节轨迹跟踪控制（腿部12关节+手臂17关节+灵巧手12关节）
-   - 特性：
-     - 内置正弦波轨迹生成
-     - 平滑初始化过程（5秒）
-     - 可配置PID参数
-     - 实时轨迹跟踪（10ms控制周期）
-     - 循环播放轨迹
-7. **关节数据记录器** (`atom_joint_recorder`)
+   - Subscribed topics: `/lower/state`, `/upper/state`, `/hands/state`
+   - Published topics: `/lower/cmd`, `/upper/cmd`, `/hands/cmd`, `/set/fsm/id`
+   - Function: Full body joint trajectory tracking control (12 leg joints + 17 arm joints + 12 dexterous hand joints)
+   - Features:
+     - Built-in sine wave trajectory generation
+     - Smooth initialization process (5 seconds)
+     - Configurable PID parameters
+     - Real-time trajectory tracking (10ms control cycle)
+     - Loop trajectory playback
+7. **Joint Data Recorder** (`atom_joint_recorder`)
 
-   - 订阅话题：`/lower/state`, `/upper/state`, `/hands/state`
-   - 功能：记录机器人所有关节角度数据到文件
-   - 特性：
-     - 可配置记录参数（持续时间、频率、延迟）
-     - 完整关节数据记录（41个关节）
-     - 带时间戳的数据格式
-     - 详细的文件头信息
-     - 实时进度显示
-8. **灵巧手控制程序** (`atom_dexterous_hands_controller`)
+   - Subscribed topics: `/lower/state`, `/upper/state`, `/hands/state`
+   - Function: Record all joint angle data of the robot to file
+   - Features:
+     - Configurable recording parameters (duration, frequency, delay)
+     - Complete joint data recording (41 joints)
+     - Data format with timestamps
+     - Detailed file header information
+     - Real-time progress display
+8. **Dexterous Hand Controller** (`atom_dexterous_hands_controller`)
 
-   - 发布话题：`/hands/cmd`
-   - 功能：控制机器人灵巧手进行抓握和松开动作
-   - 特性：
-     - 双手同步控制（左右手各6个自由度）
-     - 平滑运动轨迹（缓动函数优化）
-     - 智能时序控制（拇指延迟/提前动作）
-     - 自动状态切换（抓握 ↔ 松开，5秒间隔）
-     - 多线程安全设计
-     - 符合手指角度限制范围
+   - Published topic: `/hands/cmd`
+   - Function: Control robot dexterous hands for grasping and releasing actions
+   - Features:
+     - Synchronized control of both hands (6 degrees of freedom for each left and right hand)
+     - Smooth motion trajectory (easing function optimization)
+     - Intelligent timing control (thumb delay/advance action)
+     - Automatic state switching (grasp ↔ release, 5-second interval)
+     - Multi-threaded safe design
+     - Complies with finger angle limit range
 
-## 编译和运行
+## Build and Run
 
-### 依赖项
+### Dependencies
 
-确保以下依赖项已安装：
+Ensure the following dependencies are installed:
 
-- ROS2 (Humble)
+- ROS2 (Humble/Iron/Rolling)
 - rclcpp
-- dobot_atom (消息包)
+- dobot_atom (message package)
 - std_msgs
 - geometry_msgs
 
-### 编译
+### Build
 
 ```bash
 colcon build 
 source install/setup.bash
 ```
 
-### 运行状态读取程序
+### Run State Reading Programs
 
 ```bash
-# 下肢状态读取
+# Lower body state reader
 ros2 run atom_control_examples lower_state_reader
 
-# 上肢状态读取
+# Upper body state reader
 ros2 run atom_control_examples upper_state_reader
 
-# 关节CAN板状态读取
+# Joint CAN board state reader
 ros2 run atom_control_examples main_nodes_state_reader
 
-# 灵巧手状态读取
+# Dexterous hand state reader
 ros2 run atom_control_examples hands_state_reader
 ```
 
-### 运行控制程序
+### Run Control Programs
 
 ```bash
-# 灵巧手控制程序
+# Dexterous hand controller
 ros2 run atom_control_examples atom_dexterous_hands_controller
 ```
 
-## 话题说明
+## Topic Description
 
-### 状态话题（订阅）
+### State Topics (Subscribed)
 
-- `/lower/state` - 下肢状态信息
-- `/upper/state` - 上肢状态信息
-- `/main/nodes/state` - 关节CAN板状态
-- `/hands/state` - 灵巧手状态
-- `/fsm/status` - 状态机状态
+- `/lower/state` - Lower body state information
+- `/upper/state` - Upper body state information
+- `/main/nodes/state` - Joint CAN board status
+- `/hands/state` - Dexterous hand status
+- `/fsm/status` - State machine status
 
-### 控制话题（发布）
+### Control Topics (Published)
 
-- `/lower/cmd` - 下肢控制命令
-- `/upper/cmd` - 上肢控制命令
-- `/hands/cmd` - 灵巧手控制命令
-- `/set/fsm/id` - 设置FSM状态ID
-- `/switch/upper/control` - 切换上肢控制权
-- `/cmd_vel` - 速度控制命令
+- `/lower/cmd` - Lower body control commands
+- `/upper/cmd` - Upper body control commands
+- `/hands/cmd` - Dexterous hand control commands
+- `/set/fsm/id` - Set FSM state ID
+- `/switch/upper/control` - Switch upper body control authority
+- `/cmd_vel` - Velocity control commands
 
-**注意**：ROS2中话题名称不包含 `rt` 前缀，这与原始DDS接口有所不同。
+**Note**: Topic names in ROS2 do not include the `rt` prefix, which is different from the original DDS interface.
 
-## 安全注意事项
+## Safety Precautions
 
-⚠️ **重要安全提醒**：
+⚠️ **Important Safety Reminders**:
 
-1. 运行控制程序前，确保机器人处于安全环境
-2. 随时准备按下急停按钮
-3. 首次运行时建议降低控制参数
-4. 确保机器人周围有足够的活动空间
-5. 运行前检查机器人硬件状态是否正常
+1. Ensure the robot is in a safe environment before running control programs
+2. Be ready to press the emergency stop button at any time
+3. It is recommended to reduce control parameters when running for the first time
+4. Ensure there is sufficient activity space around the robot
+5. Check that the robot hardware status is normal before running
 
-## 关节信息
+## Joint Information
 
-### 机器人关节布局
+### Robot Joint Layout
 
-- **下肢关节**：12个关节（左右腿各6个）
-- **上肢关节**：17个关节（左右臂各7个+头部2个+躯干1个）
-- **灵巧手关节**：12个关节（左右手各6个）
+- **Lower body joints**: 12 joints (6 for each left and right leg)
+- **Upper body joints**: 17 joints (7 for each left and right arm + 2 for head + 1 for torso)
+- **Dexterous hand joints**: 12 joints (6 for each left and right hand)
 
-### 关节限位
+### Joint Limits
 
-详细的关节限位信息请参考 `Atom关节顺序名称与关节限位.md` 文件。
+For detailed joint limit information, please refer to the `Atom关节顺序名称与关节限位.md` file.
 
-## 程序参数
+## Program Parameters
 
-### 轨迹控制参数
+### Trajectory Control Parameters
 
-- `trajectory_amplitude`: 轨迹幅度
-- `trajectory_frequency`: 轨迹频率
-- `control_frequency`: 控制频率
-- `leg_kp`, `leg_kd`: 腿部PID参数
-- `arm_kp`, `arm_kd`: 手臂PID参数
+- `trajectory_amplitude`: Trajectory amplitude
+- `trajectory_frequency`: Trajectory frequency
+- `control_frequency`: Control frequency
+- `leg_kp`, `leg_kd`: Leg PID parameters
+- `arm_kp`, `arm_kd`: Arm PID parameters
 
-### 记录器参数
+### Recorder Parameters
 
-- `record_duration`: 记录持续时间
-- `record_frequency`: 记录频率
-- `start_delay`: 开始延迟
-- `output_file`: 输出文件路径
+- `record_duration`: Recording duration
+- `record_frequency`: Recording frequency
+- `start_delay`: Start delay
+- `output_file`: Output file path
 
-### 灵巧手控制参数
+### Dexterous Hand Control Parameters
 
-- `STATE_SWITCH_INTERVAL`: 状态切换间隔（秒）
-- `MOTION_STEPS`: 动作总步数
-- `STEP_DELAY_MS`: 步间延迟（毫秒）
-- `THUMB_DELAY_STEPS`: 抓握时拇指延迟步数
-- `THUMB_LEAD_STEPS`: 松开时拇指提前完成步数
-- `CONTROL_FREQUENCY`: 控制频率（Hz）
+- `STATE_SWITCH_INTERVAL`: State switching interval (seconds)
+- `MOTION_STEPS`: Total motion steps
+- `STEP_DELAY_MS`: Step delay (milliseconds)
+- `THUMB_DELAY_STEPS`: Thumb delay steps during grasping
+- `THUMB_LEAD_STEPS`: Thumb advance completion steps during release
+- `CONTROL_FREQUENCY`: Control frequency (Hz)
 
-### 信息打印控制
+### Information Print Control
 
-每个程序都有对应的信息打印开关：
+Each program has corresponding information print switches:
 
-- `INFO_LOWER_STATE`: 下肢状态信息打印
-- `INFO_UPPER_STATE`: 上肢状态信息打印
-- `INFO_MAIN_NODES`: 关节CAN板信息打印
-- `INFO_HANDS_STATE`: 灵巧手信息打印
+- `INFO_LOWER_STATE`: Lower body state information print
+- `INFO_UPPER_STATE`: Upper body state information print
+- `INFO_MAIN_NODES`: Joint CAN board information print
+- `INFO_HANDS_STATE`: Dexterous hand information print
 
-## 故障排除
+## Troubleshooting
 
-### 常见问题
+### Common Issues
 
-1. **话题连接失败**
+1. **Topic Connection Failure**
 
-   - 检查 `dobot_atom` 包是否正确安装
-   - 确认机器人硬件连接正常
-   - 检查话题名称是否正确（不包含 `rt` 前缀）
-2. **编译错误**
+   - Check if the `dobot_atom` package is correctly installed
+   - Confirm robot hardware connection is normal
+   - Check if topic names are correct (do not include `rt` prefix)
+2. **Build Errors**
 
-   - 确保所有依赖项已安装
-   - 检查 ROS2 环境是否正确设置
-   - 确认 `dobot_atom` 消息包已编译
-3. **控制无响应**
+   - Ensure all dependencies are installed
+   - Check if ROS2 environment is correctly set
+   - Confirm `dobot_atom` message package has been built
+3. **Control No Response**
 
-   - 检查机器人是否处于正确的控制模式
-   - 确认上肢控制权已正确切换
-   - 检查FSM状态是否正确设置
+   - Check if the robot is in the correct control mode
+   - Confirm upper body control authority has been correctly switched
+   - Check if FSM state is correctly set
 
-### 调试命令
+### Debug Commands
 
 ```bash
-# 查看可用话题
+# View available topics
 ros2 topic list
 
-# 查看话题信息
+# View topic information
 ros2 topic info /upper/state
 
-# 监听话题数据
+# Listen to topic data
 ros2 topic echo /upper/state
 
 ```
 
-## 扩展开发
+## Extended Development
 
-### 添加新的控制模式
+### Adding New Control Modes
 
-1. 在相应的控制器文件中添加新的控制逻辑
-2. 修改控制回调函数
-3. 添加相应的参数配置
-4. 更新CMakeLists.txt文件
+1. Add new control logic in the corresponding controller file
+2. Modify control callback functions
+3. Add corresponding parameter configuration
+4. Update CMakeLists.txt file
 
-### 创建新的状态读取程序
+### Creating New State Reading Programs
 
-1. 参考现有的状态读取程序结构
-2. 订阅相应的状态话题
-3. 实现状态信息的解析和显示
-4. 在 `CMakeLists.txt` 中添加新的可执行文件
+1. Refer to existing state reading program structure
+2. Subscribe to corresponding state topics
+3. Implement parsing and display of state information
+4. Add new executable files in `CMakeLists.txt`
