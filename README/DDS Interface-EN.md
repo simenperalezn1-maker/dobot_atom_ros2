@@ -1207,7 +1207,7 @@ Iv. For `SERVO_J` / `RUN_TO` / `CART_JOG` (streaming commands, must be kept aliv
 
 ```plaintext
 command_type  = SWITCH_MODE
-target_mode   = 1          // 1=位控，0=MIT
+target_mode   = 1          // 1=Position Control，0=MIT
 command_id    = 1
 ```
 
@@ -1258,7 +1258,7 @@ Start:
 
 ```plaintext
 command_type     = CART_JOG
-left_cart_jog    = [1, 0, 0, 0, 0, 0]   // 各维 -1 / 0 / 1
+left_cart_jog    = [1, 0, 0, 0, 0, 0]   // Per Dimension -1 / 0 / 1
 stop             = 0
 command_id       = 6
 ```
